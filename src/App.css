@@ -1,0 +1,596 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #0f0f0f;
+  color: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.page-content {
+  flex: 1;
+  padding: 16px;
+  padding-bottom: 80px;
+}
+
+.navbar {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 480px;
+  background-color: #1a1a1a;
+  border-top: 1px solid #333;
+  display: flex;
+  justify-content: space-around;
+  padding: 8px 0;
+  z-index: 100;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: #888;
+  font-size: 10px;
+  gap: 2px;
+  padding: 4px 8px;
+  border-radius: 8px;
+  transition: color 0.2s;
+}
+
+.nav-item.active {
+  color: #e63946;
+}
+
+.nav-icon {
+  font-size: 20px;
+}
+
+.nav-label {
+  font-size: 9px;
+}
+
+.page-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: #ffffff;
+}
+
+.zoekbalk {
+  width: 100%;
+  padding: 12px 16px;
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 12px;
+  color: #ffffff;
+  font-size: 14px;
+  margin-bottom: 20px;
+  outline: none;
+}
+
+.zoekbalk:focus {
+  border-color: #e63946;
+}
+
+.dag-groep {
+  margin-bottom: 20px;
+}
+
+.dag-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  cursor: pointer;
+  border-bottom: 1px solid #333;
+  margin-bottom: 8px;
+}
+
+.dag-datum {
+  font-size: 13px;
+  color: #e63946;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.dag-pijl {
+  color: #555;
+  font-size: 20px;
+}
+
+.sessie-kaart {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #1a1a1a;
+  border-radius: 10px;
+  padding: 12px 14px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  border: 1px solid #222;
+}
+
+.sessie-kaart:active {
+  background: #222;
+}
+
+.sessie-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.sessie-naam {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.sessie-spiergroep {
+  font-size: 12px;
+  color: #888;
+}
+
+.sessie-sets {
+  font-size: 12px;
+  color: #e63946;
+  font-weight: 600;
+}
+
+.leeg {
+  text-align: center;
+  padding: 60px 20px;
+  color: #555;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+}
+
+.btn-primary {
+  background: #e63946;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.form-groep {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.form-groep label {
+  font-size: 13px;
+  color: #aaa;
+  font-weight: 500;
+}
+
+.input {
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 10px;
+  color: #fff;
+  padding: 12px 14px;
+  font-size: 15px;
+  outline: none;
+  width: 100%;
+}
+
+.input:focus {
+  border-color: #e63946;
+}
+
+select.input option {
+  background: #1a1a1a;
+}
+
+.suggesties {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #222;
+  border: 1px solid #333;
+  border-radius: 10px;
+  z-index: 50;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.suggestie-item {
+  padding: 12px 14px;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.suggestie-item:hover {
+  background: #2a2a2a;
+}
+
+.suggestie-spier {
+  color: #888;
+  font-size: 12px;
+}
+
+.vorige-sessie {
+  background: #1a1a1a;
+  border-radius: 12px;
+  padding: 12px;
+  margin-bottom: 16px;
+  border: 1px solid #2a2a2a;
+}
+
+.vorige-titel {
+  font-size: 13px;
+  color: #aaa;
+  margin-bottom: 8px;
+}
+
+.vorige-set {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 0;
+  font-size: 14px;
+}
+
+.set-badge {
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+.set-badge.warmup {
+  background: #2a2a00;
+  color: #ffcc00;
+}
+
+.set-badge.werkset {
+  background: #2a0000;
+  color: #e63946;
+}
+
+.kopieer-btn {
+  margin-left: auto;
+  background: #333;
+  border: none;
+  color: #fff;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.sets-sectie {
+  margin-bottom: 20px;
+}
+
+.sets-titel {
+  font-size: 13px;
+  color: #aaa;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+.set-rij {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.set-type-select {
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 8px;
+  color: #fff;
+  padding: 10px 8px;
+  font-size: 13px;
+  flex: 2;
+  outline: none;
+}
+
+.set-input {
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 8px;
+  color: #fff;
+  padding: 10px 8px;
+  font-size: 14px;
+  flex: 1;
+  outline: none;
+  width: 100%;
+}
+
+.verwijder-set-btn {
+  background: transparent;
+  border: none;
+  color: #555;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.set-toevoegen-btn {
+  background: transparent;
+  border: 1px dashed #444;
+  color: #888;
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-top: 4px;
+}
+
+.btn-full {
+  width: 100%;
+  padding: 16px;
+  font-size: 16px;
+  border-radius: 14px;
+  margin-top: 8px;
+}
+
+.dag-detail-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.terug-btn {
+  background: transparent;
+  border: none;
+  color: #e63946;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.dag-sessie-kaart {
+  background: #1a1a1a;
+  border-radius: 14px;
+  padding: 14px;
+  margin-bottom: 14px;
+  border: 1px solid #222;
+}
+
+.dag-sessie-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.dag-sessie-naam {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.dag-sessie-spier {
+  font-size: 12px;
+  color: #888;
+  margin-top: 2px;
+}
+
+.verwijder-sessie-btn {
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.sets-lijst {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.set-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  padding: 6px 0;
+  border-bottom: 1px solid #222;
+}
+
+.set-item:last-child {
+  border-bottom: none;
+}
+
+.pr-badge {
+  margin-left: auto;
+  background: #7a6000;
+  color: #ffd700;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 6px;
+}
+
+.zoek-rij {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+.dag-kaart {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #1a1a1a;
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  border: 1px solid #222;
+}
+
+.dag-kaart-datum {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.dag-kaart-info {
+  font-size: 12px;
+  color: #888;
+  margin-top: 3px;
+}
+
+.stat-groot {
+  background: #1a1a1a;
+  border-radius: 16px;
+  padding: 24px;
+  text-align: center;
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #222;
+}
+
+.stat-groot-getal {
+  font-size: 56px;
+  font-weight: 800;
+  color: #e63946;
+  line-height: 1;
+}
+
+.stat-groot-label {
+  font-size: 14px;
+  color: #888;
+  margin-top: 6px;
+}
+
+.stats-rij {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.stat-kaart {
+  flex: 1;
+  background: #1a1a1a;
+  border-radius: 12px;
+  padding: 14px 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #222;
+}
+
+.stat-getal {
+  font-size: 24px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.stat-label {
+  font-size: 10px;
+  color: #888;
+  margin-top: 4px;
+}
+
+.dashboard-sectie {
+  background: #1a1a1a;
+  border-radius: 14px;
+  padding: 14px;
+  margin-bottom: 16px;
+  border: 1px solid #222;
+}
+
+.dashboard-titel {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #aaa;
+}
+
+.top-rij {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+  border-bottom: 1px solid #222;
+  font-size: 14px;
+}
+
+.top-rij:last-child { border-bottom: none; }
+
+.top-rank {
+  color: #e63946;
+  font-weight: 700;
+  width: 24px;
+}
+
+.top-naam { flex: 1; }
+
+.top-sets {
+  color: #888;
+  font-size: 12px;
+}
+
+.spier-rij {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid #222;
+  font-size: 14px;
+}
+
+.spier-rij:last-child { border-bottom: none; }
+
+.spier-naam { color: #fff; }
+
+.spier-sets { color: #888; font-size: 12px; }
+
+.modus-toggle {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.modus-btn {
+  flex: 1;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #333;
+  background: #1a1a1a;
+  color: #888;
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.modus-btn.actief {
+  background: #e63946;
+  border-color: #e63946;
+  color: #fff;
+}
