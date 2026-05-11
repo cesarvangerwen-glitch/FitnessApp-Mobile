@@ -8,6 +8,7 @@ import Dashboard from './pages/Dashboard.jsx'
 import './App.css'
 import Dag from './pages/Dag.jsx'
 import Aanpassen from './pages/Aanpassen.jsx'
+import Importeer from './pages/Importeer.jsx'
 
 function NavBar() {
   const location = useLocation()
@@ -51,6 +52,7 @@ function App() {
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/dag/:datum" element={<Dag />} />
             <Route path="/aanpassen/:datum/:oefening" element={<Aanpassen />} />
+            <Route path="/importeer" element={<Importeer />} />
           </Routes>
         </div>
         <NavBar />
