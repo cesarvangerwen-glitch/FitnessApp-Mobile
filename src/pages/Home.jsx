@@ -72,6 +72,16 @@ export default function Home() {
           </div>
         ))
       )}
+
+      <div style={{textAlign:'center', marginTop: 20}}>
+        <button 
+          className="btn-primary" 
+          onClick={() => navigate('/importeer')}
+          style={{background:'#333', fontSize:13, padding:'10px 20px'}}
+        >
+          📂 Data importeren
+        </button>
+      </div>
     </div>
   )
 }
